@@ -122,9 +122,22 @@ Para testar se o HAProxy está funcionando corretamente, você pode usar o coman
 Além disso, você pode verificar as estatísticas acessando:
 
 ```bash
-  http://192.168.122.123/haproxy?stats
+  http://192.168.122.123:8080/haproxy?stats
 ```
+
+
+## Demonstração
+
+Acesse o servidor HAProxy que ele irá balancear e distribuir para os servidores Web.
+
+```bash
+  http://192.168.122.123:8080/
+```  
 
 ## Considerações Finais
 
 Utilizando o HAProxy, você obtém um balanceador de carga de alta disponibilidade, conhecido por sua eficácia na distribuição de tráfego, suporte a várias plataformas e flexibilidade de configuração.
+## Licença
+
+[haproxy - Documentação](https://www.haproxy.org/)
+
