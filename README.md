@@ -44,20 +44,20 @@ Instalar o pacote HAProxy
 
 ## Passo 3: Configuração do HAProxy
 
-Fazer um backup do arquivo de configuração original:
+1.Fazer um backup do arquivo de configuração original:
 
 ```bash
   cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg-org
 ```
 
-Editar o arquivo de configuração,
+2.Editar o arquivo de configuração,
 abra o arquivo de configuração do HAProxy:
 
 ```bash
   vi /etc/haproxy/haproxy.cfg
 ```
 
-Adicione os seguintes blocos de configuração no arquivo:
+3.Adicione os seguintes blocos de configuração no arquivo:
 
 ```bash
   frontend web-frontend
@@ -74,16 +74,57 @@ Adicione os seguintes blocos de configuração no arquivo:
     server web-node02 192.168.122.70:80  check port 80
 ```    
 
-Configuração de logs:
+4.Configuração de logs:
 Para armazenar as estatísticas do HAProxy, edite o arquivo de configuração do rsyslog:
 
 ```bash
   vi /etc/rsyslog.d/haproxy.conf
 ```  
 
-Adicione as seguintes linhas:
+5.Adicione as seguintes linhas:
 
 ```bash
  local2.=info     /var/log/haproxy-access.log  
  local2.notice    /var/log/haproxy-info.log
 ```  
+
+## Passo 4: Configuração do Firewall
+
+Permita a porta 80 (HTTP):
+
+```bash
+  firewall-cmd --permanent --add-port=8080/tcp  
+  firewall-cmd --reload
+```  
+
+## Passo 5: Iniciar HAProxy
+
+1.Reiniciar o serviço HAProxy:
+
+```bash
+ systemctl restart haproxy
+```  
+
+2.Habilitar o HAProxy para iniciar automaticamente:
+
+```bash
+ systemctl enable haproxy
+```  
+
+## Passo 6: Verificação
+
+Para testar se o HAProxy está funcionando corretamente, você pode usar o comando curl para fazer várias requisições e verificar se o tráfego é distribuído entre os servidores:
+
+```bash
+  curl 192.168.122.123:8080
+```
+
+Além disso, você pode verificar as estatísticas acessando:
+
+```bash
+  http://192.168.122.123/haproxy?stats
+```
+
+## Considerações Finais
+
+Utilizando o HAProxy, você obtém um balanceador de carga de alta disponibilidade, conhecido por sua eficácia na distribuição de tráfego, suporte a várias plataformas e flexibilidade de configuração.
