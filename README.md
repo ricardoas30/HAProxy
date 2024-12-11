@@ -1,5 +1,6 @@
 
-![Logo](https://upload.wikimedia.org/wikipedia/commons/a/ab/Haproxy-logo.png)
+![Logo](https://github.com/ricardoas30/HAProxy/blob/main/logo-haproxy.png)
+
 
 
 # Balanceamento de Carga - WEB
