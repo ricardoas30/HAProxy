@@ -12,7 +12,7 @@ de ser rápido e eficiente (em termos de processador e uso de memória).
 
 ## Apêndice
 
-Para instalar e configurar um balanceador de carga com HAProxy, siga as instruções detalhadas abaixo. Este guia abrange a instalação no sistema operacional CentOS 8, embora os passos sejam geralmente similares para outras distribuições com algumas variações nos comandos de instalação.
+Para instalar e configurar um balanceador de carga com HAProxy, siga as instruções detalhadas abaixo. Este guia abrange a instalação no sistema operacional Fedora 41, embora os passos sejam geralmente similares para outras distribuições com algumas variações nos comandos de instalação.
 
 Pré-requisitos
 Acesso root ou um usuário com privilégios de superusuário.
